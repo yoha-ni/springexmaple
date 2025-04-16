@@ -6,7 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemoryMemberRepository memoryMemberRepository) {
+        this.memberRepository = memoryMemberRepository;
+    }
 
     @Override
     public void join(Member member) {
